@@ -1,4 +1,4 @@
-import sys, itertools
+import sys
 
 def main(argv):
 
