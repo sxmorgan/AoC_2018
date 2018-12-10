@@ -14,15 +14,6 @@ for (i in 1:nrow(data)) {
             if (is.na(cloth[row, col])) {cloth[row, col] <- data[i,1]}
             else {cloth[row, col] <- 0}}}}
 
-# for (i in 1:nrow(data)) {
-#     
-#     counts <- table(cloth)[which(names(table(cloth))==data[i,1])]
-#     area <- data[i,4]*data[i,5]
-#     if (length(counts) == 0) {data[i,'Overlap'] <- TRUE}
-#     else if (counts != area) {data[i,'Overlap'] <- TRUE}
-#     else {data[i,'Overlap'] <- FALSE}
-# }
-
 # part I
 cut_cloth <- table(cloth)
 print(cut_cloth[names(cut_cloth) == 0])
