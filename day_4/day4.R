@@ -57,5 +57,13 @@ idx <- which(minutes$ID == as.numeric(guard))
 colsums <- as.numeric(colSums(minutes[idx,-c(1,2)]))
 max.min <- max(colsums[-length(colsums)])
 minute <- which(colsums == max.min)-1
-print(guard * minute)
+print(paste('Part I:', guard * minute))
+
+# part II
+df.guards <- t(vapply(unique(minutes$ID), FUN=function(i) {
+    idx <- which(minutes$ID == i)
+    return(colSums(minutes[idx,-c(1,2)]))}, FUN.VALUE=numeric(60)))
+rownames(df.guards) <- unique(minutes$ID)
+ans <- which(df.guards == max(df.guards), arr.ind=TRUE)
+print(paste('Part II:', as.numeric(rownames(ans)) * (ans[2]-1)))
 
