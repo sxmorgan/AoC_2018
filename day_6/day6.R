@@ -7,6 +7,10 @@ rownames(indata)
 
 grid.view <- matrix(NA, nrow = max(indata[,2])+1, ncol = max(indata[,1]+1))
 for (i in 1:nrow(indata)) {grid.view[indata[i,2], indata[i,1]] <- markers[i]}
+coords <- vapply(rownames(grid))
+for (r in 1:nrow(grid.view)) {
+    for (c in 1:ncol(grid.view)) {}
+}
 
 grid.view <- cbind(vapply(ncol(grid.view), FUN=function(c, coords){
     col.coords <- 
